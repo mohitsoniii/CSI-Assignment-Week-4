@@ -15,9 +15,13 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/about', (req, res) => {
-  res.send('This is the About Page.');
-});
+// Route for Managing Profile 
+const profileRoutes = require('./Routes/profileRoutes');
+app.use('/profile',profileRoutes);
+
+// Route for different Feed Pages
+const feedRoutes = require('./Routes/feedRoutes')
+app.use('/feed',feedRoutes);
 
 
 app.use((req, res) => {
